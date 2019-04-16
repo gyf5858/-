@@ -1,0 +1,24 @@
+<!--JS判断移动端访问www.szgm.gov.cn强制性跳转移动端-->
+<script type="text/javascript">
+	function loadBrowser() {
+	var userAgent = navigator.userAgent.toLocaleLowerCase();
+	if ((userAgent.match(/(mqqbrowser|juc|fennec|symbian|windows phone|android|blackberry|webos|browserng|iemobile|wosbrowser|iphone)/i))) {
+			return "mobile"
+		} 
+	}
+        function getUrlString(name) { 
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i"); 
+        var r = window.location.search.substr(1).match(reg); 
+        if (r != null) return decodeURI(r[2]); return null; 
+        }
+        var pc="";
+        pc = getUrlString("pc");
+        if(pc==null){
+             pc="";
+         }
+	if (loadBrowser() == 'mobile' &&  pc.length<=0 ){
+		window.location.href = "http://www.szlhq.gov.cn/ydmh/";
+	}
+</script>
+<!--JS判断移动端访问www.szgm.gov.cn强制性跳转移动端-->
+这个直接放进代码里面，当用手机打开时就会自到跳转到移动端，记得改链接噢！
